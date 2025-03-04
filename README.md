@@ -20,23 +20,23 @@ This Ansible role automates the installation and configuration of Docker on Debi
 
 📋 Prerequisites
 
-🛠 Supported Operating Systems (tested)
+  🛠 Supported Operating Systems (tested)
 
-Debian 12+
+    Debian 12+
 
-⚙️ Required Dependencies
+  ⚙️ Required Dependencies
 
-Ensure the control machine has:
+    Ensure the control machine has:
 
-Ansible 2.10+
+      Ansible 2.10+
 
-Python 3.6+
+      Python 3.6+
 
-Ansible collection community.docker
+      Ansible collection community.docker
 
-Ensure the target machine has :
+    Ensure the target machine has :
 
-Internet access (for package downloads)
+      Internet access (for package downloads)
 
 🔑 Privileges
 
