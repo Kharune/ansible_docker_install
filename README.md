@@ -1,4 +1,4 @@
-Ansible Role: Docker Installation
+🚀 Ansible Role: Docker Installation
 
 📌 Overview
 
@@ -6,72 +6,85 @@ This Ansible role automates the installation and configuration of Docker on Debi
 
 ✅ Features
 
-- Removes old Docker packages (if any)
-
-- Updates system packages
-
-- Installs Docker and its dependencies
-
-- Configures Docker to start on boot
-
-- Adds the user to the docker group
-
-- Ensures Docker is running and verifies installation
+✔️ Removes old Docker packages (if any)
+✔️ Updates system packages
+✔️ Installs Docker and its dependencies
+✔️ Configures Docker to start on boot
+✔️ Adds the user to the docker group
+✔️ Ensures Docker is running and verifies installation
 
 📋 Prerequisites
 
-  🛠 Supported Operating Systems (tested)
+🛠 Supported Operating Systems (Tested)
 
-      - Debian 12+
+Debian 12+
 
-  ⚙️ Required Dependencies
+⚙️ Required Dependencies
 
-    Ensure the control machine has:
+Ensure the control machine has:
 
-      - Ansible 2.10+
+Ansible 2.10+
 
-      - Python 3.6+
+Python 3.6+
 
-      - Ansible collection community.docker
+Ansible collection community.docker
 
-    Ensure the target machine has :
+Ensure the target machine has:
 
-      - Internet access (for package downloads)
+Internet access (for package downloads)
 
 🔑 Privileges
 
-      - Run playbooks as a user with sudo privileges and SSH keys setup, in this role the user is "Control"
+Run playbooks as a user with sudo privileges and SSH key-based authentication.
+
+In this role, the default user is control.
+
+🚀 Quick Start Guide
 
 1️⃣ Install the Role
 
-      Clone this repository or download it:
+Clone this repository or download it:
 
-      git clone https://github.com/yourusername/ansible-role-docker.git
-      cd ansible-role-docker
+git clone https://github.com/yourusername/ansible-role-docker.git
+cd ansible-role-docker
 
 2️⃣ Configure Inventory, Playbook, and Ansible Configuration
 
-      Before running the playbook, ensure the following files are configured properly based on your environment:
+Before running the playbook, ensure the following files are properly configured based on your environment.
 
-    Inventory Configuration (hosts.yml)
-      lab:
-        vars:
-          ansible_python_interpreter: auto_silent
-        hosts:
-          192.168.253.130:22450 # Change for you environnement
-      preprod:
-        children:
-          lab:
+Inventory Configuration (hosts.yml)
 
-    Playbook Configuration (PB_deploy_docker.yml)
-      ---
-      - name: Install Docker on Debian
-        hosts: preprod # Change to your target group
-        remote_user: control # Change to your user
-        become: true
-        roles:
-          - docker_install
+lab:
+  vars:
+    ansible_python_interpreter: auto_silent
+  hosts:
+    192.168.253.130:22450  # Change this based on your environment
+preprod:
+  children:
+    lab:
 
-    Ansible Configuration (ansible.cfg)
-    Line 139 : inventory=/home/control/hosts.yml # Change to your inventory file
-    Line 254 : transport=paramiko # Change if you don't use paramiko
+Playbook Configuration (PB_deploy_docker.yml)
+
+---
+- name: Install Docker on Debian
+  hosts: preprod  # Change this based on your target group
+  remote_user: control  # Change this based on your user
+  become: true
+  roles:
+    - docker_install
+
+Ansible Configuration (ansible.cfg)
+
+Ensure your Ansible configuration is set correctly:
+
+[defaults]
+inventory=/home/control/hosts.yml  # Change to your inventory file
+transport=paramiko  # Change if you don't use paramiko
+
+3️⃣ Run the Playbook
+
+Run the playbook:
+
+ansible-playbook -i hosts.yml PB_deploy_docker.yml -K
+
+💡 Tip: Use -K to prompt for the sudo password when running as a non-root user.
