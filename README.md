@@ -86,7 +86,7 @@ Ansible Configuration (ansible.cfg)
 
 Ensure your Ansible configuration is set correctly:
 
-[defaults]
+    [defaults]
     inventory=/home/control/hosts.yml  # Change to your inventory file
     transport=paramiko  # Change if you don't use paramiko
 
