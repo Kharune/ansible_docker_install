@@ -28,7 +28,7 @@ This Ansible role automates the installation and configuration of Docker on Debi
 
 Ensure the control machine has:
 
-    ansible [core 2.15.13]
+    ansible-core 2.15.13
 
     Python 3.9.21
 
