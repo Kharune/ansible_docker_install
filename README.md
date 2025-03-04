@@ -28,17 +28,19 @@ This Ansible role automates the installation and configuration of Docker on Debi
 
 Ensure the control machine has:
 
-    Ansible 2.10+
+    ansible [core 2.15.13]
 
-    Python 3.6+
+    Python 3.9.21
 
-    Ansible collection community.docker
+    community.docker 4.4.0
 
-    Paramiko
+    Paramiko 3.5.1
 
 Ensure the target machine has:
 
     Internet access (for package downloads)
+    
+    Python 3.11.2
 
 🔑 **Privileges**
 
@@ -65,7 +67,7 @@ Inventory Configuration (hosts.yml)
       vars:
         ansible_python_interpreter: auto_silent
       hosts:
-        192.168.253.130:22450  # Change this based on your environment
+        192.168.253.130:22450  # Change this based on your environment and ssh port, if default used remove (:ssh_port)
     preprod:
       children:
         lab:
