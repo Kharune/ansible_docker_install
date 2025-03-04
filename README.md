@@ -45,8 +45,8 @@ In this role, the default user is control.
 
 Clone this repository or download it:
 
-git clone https://github.com/yourusername/ansible-role-docker.git
-cd ansible-role-docker
+    git clone https://github.com/yourusername/ansible-role-docker.git
+    cd ansible-role-docker
 
 2️⃣ Configure Inventory, Playbook, and Ansible Configuration
 
@@ -54,37 +54,37 @@ Before running the playbook, ensure the following files are properly configured 
 
 Inventory Configuration (hosts.yml)
 
-lab:
-  vars:
-    ansible_python_interpreter: auto_silent
-  hosts:
-    192.168.253.130:22450  # Change this based on your environment
-preprod:
-  children:
     lab:
+      vars:
+        ansible_python_interpreter: auto_silent
+      hosts:
+        192.168.253.130:22450  # Change this based on your environment
+    preprod:
+      children:
+        lab:
 
 Playbook Configuration (PB_deploy_docker.yml)
 
----
-- name: Install Docker on Debian
-  hosts: preprod  # Change this based on your target group
-  remote_user: control  # Change this based on your user
-  become: true
-  roles:
-    - docker_install
+    ---
+    - name: Install Docker on Debian
+      hosts: preprod  # Change this based on your target group
+      remote_user: control  # Change this based on your user
+      become: true
+      roles:
+        - docker_install
 
 Ansible Configuration (ansible.cfg)
 
 Ensure your Ansible configuration is set correctly:
 
 [defaults]
-inventory=/home/control/hosts.yml  # Change to your inventory file
-transport=paramiko  # Change if you don't use paramiko
+    inventory=/home/control/hosts.yml  # Change to your inventory file
+    transport=paramiko  # Change if you don't use paramiko
 
 3️⃣ Run the Playbook
 
 Run the playbook:
 
-ansible-playbook -i hosts.yml PB_deploy_docker.yml -K
+    ansible-playbook PB_deploy_docker.yml
 
 💡 Tip: Use -K to prompt for the sudo password when running as a non-root user.
