@@ -1,10 +1,10 @@
-🚀 Ansible Role: Docker Installation
+🚀 **Ansible Role: Docker Installation**
 
-📌 Overview
+📌 **Overview**
 
 This Ansible role automates the installation and configuration of Docker on Debian-based systems. It ensures that Docker is properly set up with the latest stable version and configures the system for optimal containerized application deployment.
 
-✅ Features
+✅ **Features**
 
 ✔️ Removes old Docker packages (if any)
 ✔️ Updates system packages
@@ -13,13 +13,13 @@ This Ansible role automates the installation and configuration of Docker on Debi
 ✔️ Adds the user to the docker group
 ✔️ Ensures Docker is running and verifies installation
 
-📋 Prerequisites
+📋 **Prerequisites**
 
 🛠 Supported Operating Systems (Tested)
 
 Debian 12+
 
-⚙️ Required Dependencies
+⚙️ **Required Dependencies**
 
 Ensure the control machine has:
 
@@ -29,26 +29,28 @@ Python 3.6+
 
 Ansible collection community.docker
 
+Paramiko
+
 Ensure the target machine has:
 
 Internet access (for package downloads)
 
-🔑 Privileges
+🔑 **Privileges**
 
 Run playbooks as a user with sudo privileges and SSH key-based authentication.
 
 In this role, the default user is control.
 
-🚀 Quick Start Guide
+🚀 **Quick Start Guide**
 
-1️⃣ Install the Role
+1️⃣ **Install the Role**
 
 Clone this repository or download it:
 
-    git clone https://github.com/yourusername/ansible-role-docker.git
+    git clone https://github.com/Kharune/ansible_docker_install.git
     cd ansible-role-docker
 
-2️⃣ Configure Inventory, Playbook, and Ansible Configuration
+2️⃣ **Configure Inventory, Playbook, and Ansible Configuration**
 
 Before running the playbook, ensure the following files are properly configured based on your environment.
 
@@ -81,7 +83,7 @@ Ensure your Ansible configuration is set correctly:
     inventory=/home/control/hosts.yml  # Change to your inventory file
     transport=paramiko  # Change if you don't use paramiko
 
-3️⃣ Run the Playbook
+3️⃣ **Run the Playbook**
 
 Run the playbook:
 
