@@ -7,39 +7,44 @@ This Ansible role automates the installation and configuration of Docker on Debi
 ✅ **Features**
 
 ✔️ Removes old Docker packages (if any)
+
 ✔️ Updates system packages
+
 ✔️ Installs Docker and its dependencies
+
 ✔️ Configures Docker to start on boot
+
 ✔️ Adds the user to the docker group
+
 ✔️ Ensures Docker is running and verifies installation
 
 📋 **Prerequisites**
 
 🛠 Supported Operating Systems (Tested)
 
-Debian 12+
+    Debian 12+
 
 ⚙️ **Required Dependencies**
 
 Ensure the control machine has:
 
-Ansible 2.10+
+    Ansible 2.10+
 
-Python 3.6+
+    Python 3.6+
 
-Ansible collection community.docker
+    Ansible collection community.docker
 
-Paramiko
+    Paramiko
 
 Ensure the target machine has:
 
-Internet access (for package downloads)
+    Internet access (for package downloads)
 
 🔑 **Privileges**
 
-Run playbooks as a user with sudo privileges and SSH key-based authentication.
+    Run playbooks as a user with sudo privileges and SSH key-based authentication.
 
-In this role, the default user is control.
+    In this role, the default user is control.
 
 🚀 **Quick Start Guide**
 
