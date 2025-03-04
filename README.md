@@ -53,7 +53,7 @@ This Ansible role automates the installation and configuration of Docker on Debi
 
       Before running the playbook, ensure the following files are configured properly based on your environment:
 
-    Inventory Configuration "hosts.yml"
+    Inventory Configuration (hosts.yml)
       lab:
         vars:
           ansible_python_interpreter: auto_silent
@@ -62,3 +62,16 @@ This Ansible role automates the installation and configuration of Docker on Debi
       preprod:
         children:
           lab:
+
+    Playbook Configuration (PB_deploy_docker.yml)
+      ---
+      - name: Install Docker on Debian
+        hosts: preprod # Change to your target group
+        remote_user: control # Change to your user
+        become: true
+        roles:
+          - docker_install
+
+    Ansible Configuration (ansible.cfg)
+    Line 139 : inventory=/home/control/hosts.yml # Change to your inventory file
+    Line 254 : transport=paramiko # Change if you don't use paramiko
