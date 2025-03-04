@@ -1,0 +1,7 @@
+---
+- name: Install Docker on Debian
+  hosts: preprod
+  remote_user: control
+  become: true
+  roles:
+    - docker_install
