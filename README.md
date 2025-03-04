@@ -40,4 +40,25 @@ This Ansible role automates the installation and configuration of Docker on Debi
 
 🔑 Privileges
 
-      - Run playbooks as a user with sudo privileges and SSH keys setup in this role the user is "Control"
+      - Run playbooks as a user with sudo privileges and SSH keys setup, in this role the user is "Control"
+
+1️⃣ Install the Role
+
+      Clone this repository or download it:
+
+      git clone https://github.com/yourusername/ansible-role-docker.git
+      cd ansible-role-docker
+
+2️⃣ Configure Inventory, Playbook, and Ansible Configuration
+
+      Before running the playbook, ensure the following files are configured properly based on your environment:
+
+    Inventory Configuration "hosts.yml"
+      lab:
+        vars:
+          ansible_python_interpreter: auto_silent
+        hosts:
+          192.168.253.130:22450 # Change for you environnement
+      preprod:
+        children:
+          lab:
