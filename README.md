@@ -96,4 +96,10 @@ Run the playbook:
 
     ansible-playbook PB_deploy_docker.yml
 
-💡 Tip: Use -K to prompt for the sudo password when running as a non-root user.
+🐳**Demo**
+
+
+https://github.com/user-attachments/assets/104e1157-1c16-4a47-b34b-15b4da9fb7af
+
+
+
